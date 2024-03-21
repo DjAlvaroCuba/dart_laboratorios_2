@@ -1,0 +1,48 @@
+main() {
+
+  final spidy =  new MarvelHeroes(nombrePila: 'Peter Parker',  nombrePersonaje: 'Spiderman');
+  final dcJson = <String, String>{
+   
+    /*Para borrar y enviar en  blanco */
+      /* 
+     'nombrePiladc':'Bruce Wayne' ,
+    'nombrePersonajedc':'Batman' 
+        */
+ };
+  
+  final batman  = new DCHeroes.fromdataJson(dcJson);
+  print(batman);
+  /*heroes.nombrePila = 'Peter Parker';
+  heroes.nombrePersonaje = 'Spiderman';*/
+  print(spidy.toString());
+}
+
+/*spidy*/
+class MarvelHeroes {
+  String? nombrePila ;
+  String? nombrePersonaje; 
+ MarvelHeroes({required this.nombrePila , required this.nombrePersonaje});
+  @override
+  String toString() {
+    return 'Hola mi nombre es  ${this.nombrePila} pero me conocen como tu amigable vecino ${this.nombrePersonaje}';
+  }
+
+}
+
+/*Batman */
+class DCHeroes {
+  String? nombrePiladc ;
+  String? nombrePersonajedc; 
+  
+  DCHeroes.fromdataJson(Map <String, String> json ){
+    this.nombrePiladc = json ['nombrePiladc']??'null / no tiene nombre de Pila';
+    this.nombrePersonajedc = json ['nombrePersonajedc']??'null / no tiene nombre de personaje';
+  }
+  
+  String toString() {
+    return 'Hola mi nombre es  ${this.nombrePiladc} pero me conocen como el caballero de la noche  ${this.nombrePersonajedc}';
+  }
+
+}
+/**/
+
